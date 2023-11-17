@@ -21,7 +21,7 @@
 }
 darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-    <div x-bind:class="{ 'dark': darkMode === true }" class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div x-bind:class="{ 'dark': darkMode === true }" class="min-h-screen">
         <livewire:layout.navigation />
 
         <!-- Page Heading -->
@@ -34,7 +34,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="bg-gray-100 dark:bg-gray-800">
             {{ $slot }}
         </main>
     </div>
