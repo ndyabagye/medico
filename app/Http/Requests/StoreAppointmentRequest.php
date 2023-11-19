@@ -22,7 +22,17 @@ class StoreAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'doctor_id' => 'required|exists:users,id',
+            'patient_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:250',
+            'institution' => 'required|string|max:250',
+            'department' => 'required|string|max:250',
+            'appointment_start_date' => 'required|date',
+            'appointment_end_date' => 'required|date|after_or_equal:appointment_start_date',
+            'notes' => 'nullable|string',
+            'description' => 'required|string',
+            'created_by' => 'required|exists:users,id',
+            'updated_by' => 'nullable|exists:users,id',
         ];
     }
 }
